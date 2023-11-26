@@ -118,7 +118,7 @@ class Pharmacy:
             print('=================================================')
             print(med)
             print('=================================================')
-        return 'String list of medicine'
+        return self.medicines
 
     def del_medicine(self, name):
         """
@@ -129,9 +129,10 @@ class Pharmacy:
         for i in self.medicines:
             if name == i.get_name():
                 self.medicines.remove(i)
-        return f"The medicine {name} was successfully deleted!"
+                return i.get_name()
+        return "Something went wrong!"
 
-    def get_medicine_lowes_price(self):
+    def get_medicine_lowest_price(self):
         """
         The func returns list of medicine from lowes price to highest
         :return:
@@ -143,7 +144,7 @@ class Pharmacy:
                 print('=================================================')
                 print(el)
                 print('=================================================')
-            return 'Cheapest med list'
+            return sorted_list
         return 'Something went wrong'
 
     def set_discount(self, discount):
@@ -166,7 +167,7 @@ class Pharmacy:
         :return:
         """
         for med in self.medicines:
-            med.set_price(med.get_price() + med.get_price() / 90 * old_discount)
+            med.set_price(med.get_price() + med.get_price() / (100 - old_discount) * old_discount)
             print('=================================================')
             print(med)
             print('=================================================')
@@ -178,7 +179,7 @@ class Pharmacy:
         :return:
         """
         for med in self.medicines:
-            if med.expiration_date():
+            if med.is_expired():
                 self.medicines.remove(med)
 
 
@@ -207,4 +208,4 @@ if __name__ == "__main__":
 
     print(pharmacy.get_medicine())
 
-    print(pharmacy.get_medicine_lowes_price())
+    print(pharmacy.get_medicine_lowest_price())
