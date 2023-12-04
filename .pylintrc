@@ -204,6 +204,8 @@ variable-naming-style=snake_case
 #variable-rgx=
 
 
+
+
 [CLASSES]
 
 # Warn about protected attribute access inside special methods
@@ -457,6 +459,7 @@ contextmanager-decorators=contextlib.contextmanager
 # Tells whether to warn about missing members when the owner of the attribute
 # is inferred to be None.
 ignore-none=yes
+
 
 # This flag controls whether pylint should warn about no-member and similar
 # checks whenever an opaque object is returned when inferring. The inference

@@ -5,6 +5,7 @@ import pytest
 from lab6 import Medicine
 from lab6 import Pharmacy
 
+
 @pytest.fixture(name='med_fixture')
 def medicine():
     """
@@ -49,6 +50,7 @@ def test_get_medicine_name():
     """
     med = Medicine(109, 10, 'paracetamol', True, datetime.date(2024, 6, 10))
     assert med.get_name() == 'paracetamol'
+
 
 def test_get_medicine_expiration_date():
     """
